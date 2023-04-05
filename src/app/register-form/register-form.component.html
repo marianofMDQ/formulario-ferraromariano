@@ -1,0 +1,117 @@
+<div class="container form" (submit)="onSubmit()">
+    <form [formGroup]="formulario" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+            <label for="validationCustom01" class="form-label">Nombre</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="validationCustom01"
+                formControlName="userName"
+                [class.is-invalid]="formulario.get('userName')?.touched && formulario.get('userName')?.invalid"
+            >
+            <div class="invalid-feedback">
+                <span *ngIf="this.formulario.get('userName')?.errors?.['required']">
+                    El campo es requerido
+                </span>
+                <span *ngIf="this.formulario.get('userName')?.errors?.['minlength']">
+                    El campo debe tener mas de {{formulario.get('userName')?.errors?.['minlength'].requiredLength}}
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom02" class="form-label">Apellido</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="validationCustom02" 
+                value="Otto"
+                formControlName="userLastName"
+                [class.is-invalid]="formulario.get('userLastName')?.touched && formulario.get('userLastName')?.invalid"
+            >
+            <div class="invalid-feedback">
+                <span *ngIf="this.formulario.get('userLastName')?.errors?.['required']">
+                    El campo es requerido
+                </span>
+                <span *ngIf="this.formulario.get('userLastName')?.errors?.['minlength']">
+                    El campo debe tener mas de {{formulario.get('userLastName')?.errors?.['minlength'].requiredLength}}
+                </span>
+            </div>
+        </div>        
+        <div class="col-md-4">
+            <label for="validationCustom03" class="form-label">Pais</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="validationCustom03"
+                formControlName="country"
+                [class.is-invalid]="formulario.get('country')?.touched && formulario.get('country')?.invalid"
+            >
+            <div class="invalid-feedback">
+                <span *ngIf="this.formulario.get('country')?.errors?.['required']">
+                    El campo es requerido
+                </span>
+                <span *ngIf="this.formulario.get('country')?.errors?.['minlength']">
+                    El campo debe tener mas de {{formulario.get('country')?.errors?.['minlength'].requiredLength}}
+                </span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom03" class="form-label">Provincia</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="validationCustom03"
+                formControlName="province"
+                [class.is-invalid]="formulario.get('province')?.touched && formulario.get('province')?.invalid"
+            >
+            <div class="invalid-feedback">
+                <span *ngIf="this.formulario.get('province')?.errors?.['required']">
+                    El campo es requerido
+                </span>
+                <span *ngIf="this.formulario.get('province')?.errors?.['minlength']">
+                    El campo debe tener mas de {{formulario.get('province')?.errors?.['minlength'].requiredLength}}
+                </span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom05" class="form-label">Ciudad</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="validationCustom05"
+                formControlName="city"
+                [class.is-invalid]="formulario.get('city')?.touched && formulario.get('city')?.invalid"
+            >
+            <div class="invalid-feedback">
+                <span *ngIf="this.formulario.get('city')?.errors?.['required']">
+                    El campo es requerido
+                </span>
+                <span *ngIf="this.formulario.get('city')?.errors?.['minlength']">
+                    El campo debe tener mas de {{formulario.get('city')?.errors?.['minlength'].requiredLength}}
+                </span>
+            </div>
+        </div> 
+        <div class="col-md-4">
+            <label for="validationCustomUsername" class="form-label">Email</label>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    id="validationCustomUsername"
+                    aria-describedby="inputGroupPrepend"
+                    formControlName="email"
+                    [class.is-invalid]="formulario.get('email')?.touched && formulario.get('email')?.invalid"
+                >
+                <div class="invalid-feedback">
+                    <span *ngIf="this.formulario.get('email')?.errors?.['required']">
+                        El campo es requerido
+                    </span>
+                    <span *ngIf="this.formulario.get('email')?.errors?.['email']">
+                        El email es invalido
+                    </span>                    
+                </div>
+        </div>       
+        <div class="col-12">
+            <button class="btn btn-primary w-100" type="submit" [disabled]="formulario.invalid">Confirmar</button>
+        </div>
+    </form>
+</div>
